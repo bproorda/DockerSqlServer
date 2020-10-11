@@ -30,7 +30,9 @@ namespace DockerSqlServer
             services.AddControllers();
 
             services.AddDbContext<MagContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("MagsConnectionMssql")));
+             options.UseSqlServer(
+             Configuration["ConnectionStrings:MagsConnectionMssql"]));
+            //^ for reading connection string in Dev settings and from env variable when in docker/production
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
