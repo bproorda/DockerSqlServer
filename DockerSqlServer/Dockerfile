@@ -4,6 +4,12 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
+ENV ConnectionStrings:MagsConnectionAzSql=
+  "Server=tcp:bproorda.database.windows.net,1433;
+  Initial Catalog=DP0419Mags;
+  User ID=ENVID;Password=ENVPW; [etc...]
+ENV DB_UserId="bproordaTest"
+ENV DB_PW="Wolfruns13!"
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src

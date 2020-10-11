@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  dockersqlserver:
+    image: ${DOCKER_REGISTRY-}dockersqlserver
+    build:
+      context: .
+      dockerfile: Dockerfile
